@@ -1,0 +1,111 @@
+
+
+
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-dark: #161625;
+  --bg-light: #22223b;
+
+  --text-primary: #f2e9e4;
+  --text-muted: #c9ada7;
+
+  --accent: #9a8c98;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  color: var(--text-primary);
+
+  background: radial-gradient(
+    circle at center,
+    #22223b 0%,
+    #161625 100%
+  );
+}
+
+
+.app-bg {
+  min-height: 100vh;
+
+  background-image:
+    radial-gradient(
+      rgba(154,140,152,0.12) 1px,
+      transparent 1px
+    ),
+    url("/circuit.svg"),
+    radial-gradient(
+      circle,
+      rgb(34,34,59) 0%,
+      rgb(22,22,37) 100%
+    );
+
+  background-size:
+    24px 24px,
+    200px 200px,
+    cover;
+}
+
+/* Purple glow */
+.app-bg::before {
+  content: "";
+  position: fixed;
+
+  width: 900px;
+  height: 900px;
+
+  top: -300px;
+  right: -250px;
+
+  background: radial-gradient(
+    circle,
+    rgba(103, 80, 255, 0.12),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.app-bg::after {
+  content: "";
+  position: fixed;
+
+  width: 800px;
+  height: 800px;
+
+  bottom: -300px;
+  left: -250px;
+
+  background: radial-gradient(
+    circle,
+    rgba(103, 80, 255, 0.08),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* Secondary glow */
+.app-bg::after {
+  content: "";
+
+  position: fixed;
+  width: 400px;
+  height: 400px;
+
+  bottom: -100px;
+  left: -100px;
+
+  background: radial-gradient(
+    circle,
+    rgba(120, 90, 255, 0.15),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
