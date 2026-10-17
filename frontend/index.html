@@ -9,7 +9,8 @@
       content="Portfolio of Arisha Firoz, B.Tech Computer Science undergraduate building scalable full-stack applications, resilient distributed architectures, and applied AI-driven systems."
     />
     <meta name="author" content="Arisha Firoz" />
-    <meta name="theme-color" content="#F5F2EA" />
+    <meta name="theme-color" content="#F5F2EA" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#070B14" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -45,16 +46,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Light "warm editorial" is the default; opt into dark only when explicitly chosen -->
+    <!-- Default to the system theme; an explicit toggle is persisted in localStorage -->
     <script>
-      try {
-        if (localStorage.getItem("af-portfolio-theme") === "dark") {
-          document.documentElement.classList.add("dark");
-        }
-      } catch (e) {}
+      (function () {
+        try {
+          var saved = localStorage.getItem("af-portfolio-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {}
+      })();
     </script>
   </head>
   <body>

@@ -1,5 +1,5 @@
-import { FiCpu, FiDatabase, FiCode, FiGlobe, FiTool, FiZap } from "react-icons/fi";
-import { skills } from "../data/portfolio";
+import { FiCode, FiCpu, FiDatabase, FiGlobe, FiTool, FiZap } from "react-icons/fi";
+import { accentVar, skills } from "../data/portfolio";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
@@ -16,38 +16,45 @@ export default function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-title" className="scroll-mt-32">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_02" title="CAPABILITY MATRIX" blurb="Technical skills, grouped by system layer." />
+        <SectionLabel index="SEC_02" title="Capability Matrix" blurb="Technical skills, grouped by system layer." />
         <h2 id="skills-title" className="sr-only">Technical Skills</h2>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((cat, i) => {
             const Icon = iconFor[cat.id] ?? FiCode;
+            const tint = accentVar[cat.accent];
             return (
               <Reveal key={cat.id} delay={(i % 3) * 0.06} className="h-full">
-                <article className="brutal brutal-hover flex h-full flex-col rounded-md p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-sm border-[1.5px] border-[var(--line)] bg-[var(--chip)] text-[var(--ink)]">
+                <article className="card card-hover flex h-full flex-col p-5" style={{ "--tint": tint }}>
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="mono pt-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--faint)]">
+                      Cat // {cat.id}
+                    </span>
+                    <span className="icon-tile h-10 w-10 shrink-0">
                       <Icon size={18} aria-hidden="true" />
                     </span>
-                    <span className="font-mono2 text-xs font-bold tracking-[0.15em] text-[var(--muted)]">
-                      CAT // {cat.id}
-                    </span>
                   </div>
-                  <h3 className="font-grotesk mt-4 text-xl font-bold uppercase tracking-tight text-[var(--ink)]">
-                    {cat.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-[var(--muted)]">{cat.description}</p>
+
+                  <h3 className="h-title mt-4 text-xl text-[var(--ink)]">{cat.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-[var(--muted)]">{cat.description}</p>
+
                   <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={`${cat.title} items`}>
                     {cat.items.map((item) => (
-                      <li key={item} className="chip">
+                      <li key={item} className="chip chip-accent" style={{ "--tint": tint }}>
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <hr className="rule mt-4" aria-hidden="true" />
-                  <p className="font-mono2 mt-3 text-[0.68rem] font-bold tracking-[0.12em] text-[var(--accent)]">
-                    {cat.footer}
-                  </p>
+
+                  <hr className="rule mt-auto pt-4" aria-hidden="true" />
+                  {cat.footer ? (
+                    <p className="mono mt-3 flex items-baseline justify-between gap-3 text-[0.68rem] uppercase tracking-[0.08em]">
+                      <span className="text-[var(--faint)]">{cat.footer.label}</span>
+                      <span className="font-bold" style={{ color: tint }}>
+                        {cat.footer.value}
+                      </span>
+                    </p>
+                  ) : null}
                 </article>
               </Reveal>
             );

@@ -12,7 +12,7 @@ function App() {
   const { theme, toggle } = useTheme();
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--ink)]">
+    <div className="min-h-screen text-[var(--ink)]">
       <a href="#main" className="skip-link">
         Skip to content
       </a>

@@ -1,5 +1,5 @@
 import { FiAward, FiBookOpen, FiStar } from "react-icons/fi";
-import { certificationStrip, degrees, honors } from "../data/portfolio";
+import { accentVar, certificationStrip, degrees, honors } from "../data/portfolio";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
@@ -7,35 +7,40 @@ export default function Education() {
   return (
     <section id="education" aria-labelledby="education-title" className="scroll-mt-32">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_05" title="EDUCATION & HONORS" blurb="Academic degrees and competitive record." />
-        <h2 id="education-title" className="sr-only">Education and Honors</h2>
+        <SectionLabel index="SEC_05" title="Education & Achievements" blurb="Academic degrees and competitive record." />
+        <h2 id="education-title" className="sr-only">Education and Achievements</h2>
 
         <div className="mt-8 grid items-stretch gap-5 lg:grid-cols-2">
           {/* Left: degrees */}
           <div className="flex h-full flex-col gap-4">
             {degrees.map((d, i) => (
               <Reveal key={d.degree} delay={i * 0.06}>
-                <article className="brutal brutal-hover rounded-md p-5">
-                  <div className="flex items-start gap-3">
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-[var(--line)] bg-[var(--chip)] text-[var(--ink)]">
+                <article className="card card-hover p-5" style={{ "--tint": accentVar.cyan }}>
+                  <div className="flex items-start gap-3.5">
+                    <span className="icon-tile h-11 w-11 shrink-0">
                       <FiBookOpen size={18} aria-hidden="true" />
                     </span>
-                    <div>
-                      <h3 className="font-grotesk text-lg font-bold uppercase leading-snug tracking-tight text-[var(--ink)]">
-                        {d.degree}
-                      </h3>
+                    <div className="min-w-0">
+                      <h3 className="h-title text-lg leading-snug text-[var(--ink)]">{d.degree}</h3>
                       <p className="mt-1 text-sm text-[var(--muted)]">{d.school}</p>
-                      <p className="font-mono2 mt-2 text-xs font-bold tracking-wider text-[var(--accent)]">
-                        {d.period} · <span className="text-[var(--ink)]">{d.detail}</span>
+                      <p className="mono mt-2.5 text-[0.7rem] font-bold uppercase tracking-[0.1em]" style={{ color: accentVar.cyan }}>
+                        {d.period}
                       </p>
+                      <ul className="mt-2.5 flex flex-wrap gap-1.5">
+                        {d.badges.map((b) => (
+                          <li key={b} className="pill-tint" style={{ "--tint": accentVar.cyan }}>
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </article>
               </Reveal>
             ))}
             <Reveal delay={0.12} className="mt-auto">
-              <p className="brutal font-mono2 rounded-md px-4 py-3 text-center text-xs font-bold tracking-[0.12em] text-[var(--ink)]">
-                CERTIFICATION // {certificationStrip}
+              <p className="card mono px-4 py-3.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
+                Certification // {certificationStrip}
               </p>
             </Reveal>
           </div>
@@ -49,19 +54,46 @@ export default function Education() {
                   delay={(i % 2) * 0.06}
                   className={`h-full ${i === honors.length - 1 ? "sm:col-span-2" : ""}`}
                 >
-                  <article className="brutal brutal-hover flex h-full items-start gap-3 rounded-md p-4">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-[var(--accent)] text-white">
-                      {i === 0 ? (
-                        <FiStar size={16} aria-hidden="true" />
-                      ) : (
-                        <FiAward size={16} aria-hidden="true" />
-                      )}
+                  <article
+                    className="card card-hover flex h-full items-start gap-3.5 p-4"
+                    style={
+                      h.featured
+                        ? { "--tint": accentVar.purple, backgroundImage: "var(--grad-purple-indigo)", border: "none" }
+                        : { "--tint": accentVar.pink }
+                    }
+                  >
+                    <span
+                      className={`icon-tile h-9 w-9 shrink-0 ${
+                        h.featured ? "border-white/25 bg-white/15 text-white" : ""
+                      }`}
+                    >
+                      {i === 0 ? <FiStar size={16} aria-hidden="true" /> : <FiAward size={16} aria-hidden="true" />}
                     </span>
-                    <div>
-                      <h3 className="font-grotesk text-sm font-bold uppercase tracking-tight text-[var(--ink)]">
-                        {h.title}
-                      </h3>
-                      <p className="mt-1 text-[0.83rem] leading-relaxed text-[var(--muted)]">{h.detail}</p>
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className={`h-title text-sm ${h.featured ? "text-white" : "text-[var(--ink)]"}`}>
+                          {h.title}
+                        </h3>
+                        {h.badge ? (
+                          <span
+                            className={`mono rounded-full px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-[0.1em] ${
+                              h.featured
+                                ? "grad-brand text-white"
+                                : "pill-tint"
+                            }`}
+                            style={h.featured ? undefined : { "--tint": accentVar.pink }}
+                          >
+                            {h.badge}
+                          </span>
+                        ) : null}
+                      </div>
+                      <p
+                        className={`mt-1.5 text-[0.83rem] leading-relaxed ${
+                          h.featured ? "text-white/75" : "text-[var(--muted)]"
+                        }`}
+                      >
+                        {h.detail}
+                      </p>
                     </div>
                   </article>
                 </Reveal>

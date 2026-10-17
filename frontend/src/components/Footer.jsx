@@ -1,36 +1,33 @@
 import { FiArrowUp } from "react-icons/fi";
+import { footerCopy } from "../data/portfolio";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t-[1.5px] border-[var(--line)]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
+    <footer className="mt-6 px-4 pb-6 sm:px-6">
+      <div className="card mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-5 px-5 py-6 sm:flex-row">
         <div>
-          <p className="font-display text-lg tracking-tight text-[var(--ink)]">ARISHA FIROZ</p>
-          <p className="font-mono2 mt-1 text-[0.7rem] tracking-[0.12em] text-[var(--muted)]">
-            © {year} ARISHA FIROZ. ALL SYSTEMS NOMINAL.
+          <p className="h-title text-lg text-[var(--ink)]">{footerCopy.name}</p>
+          <p className="mono mt-1 text-[0.68rem] uppercase tracking-[0.12em] text-[var(--faint)]">
+            © {year} {footerCopy.name}. {footerCopy.line}
           </p>
         </div>
+
         <nav aria-label="Footer">
-          <ul className="font-mono2 flex items-center gap-4 text-xs font-bold tracking-widest">
-            <li>
-              <a href="#projects" className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-[var(--accent)]">
-                PROJECTS
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-[var(--accent)]">
-                CONTACT
-              </a>
-            </li>
+          <ul className="mono flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em]">
+            {footerCopy.links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="pill-outline px-3 py-1.5 text-[0.65rem] text-[var(--muted)] transition-colors hover:text-[var(--ink)]">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-        <a
-          href="#home"
-          className="btn-brutal btn-primary font-mono2 inline-flex items-center gap-1.5 rounded-md px-4 py-2 text-xs font-bold tracking-widest"
-          aria-label="Back to top"
-        >
-          <FiArrowUp size={14} aria-hidden="true" /> BACK TO TOP
+
+        <a href="#home" className="btn btn-glass px-4 py-2 text-xs uppercase tracking-[0.1em]" aria-label="Back to top">
+          <FiArrowUp size={14} aria-hidden="true" /> {footerCopy.backToTop}
         </a>
       </div>
     </footer>

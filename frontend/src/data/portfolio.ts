@@ -1,5 +1,9 @@
 // Single source of truth for all portfolio content.
 // Edit this file to update any text on the site. No other file holds copy.
+// Strings are stored in Title Case; the light skin uppercases headings via
+// the --heading-transform token, the dark skin renders them as written.
+
+export type AccentKey = "cyan" | "indigo" | "purple" | "pink" | "neutral";
 
 export interface NavLink {
   label: string;
@@ -14,15 +18,16 @@ export interface Social {
 
 export interface SkillCategory {
   id: string;
+  accent: AccentKey;
   title: string;
   description: string;
   items: string[];
-  footer: string;
+  footer?: { label: string; value: string };
 }
 
 export interface Job {
   index: string;
-  current: boolean;
+  accent: AccentKey;
   role: string;
   company: string;
   period: string;
@@ -34,6 +39,7 @@ export interface Job {
 
 export interface Project {
   id: string;
+  accent: AccentKey;
   category: string;
   badge: string;
   title: string;
@@ -48,30 +54,52 @@ export interface Degree {
   school: string;
   period: string;
   detail: string;
+  badges: string[];
 }
 
 export interface Honor {
   title: string;
   detail: string;
+  badge?: string;
+  featured?: boolean;
 }
 
+export const accentVar = {
+  cyan: "var(--accent-cyan)",
+  indigo: "var(--accent-indigo)",
+  purple: "var(--accent-purple)",
+  pink: "var(--accent-pink)",
+  neutral: "var(--accent-neutral)",
+} as const;
+
 export const profile = {
-  brand: "AF // ARISHA FIROZ",
-  brandSubtitle: "Software Engineer & AI Integrator",
-  firstName: "ARISHA",
-  lastName: "FIROZ",
-  badge: "FULL-STACK DEVELOPER · AI/ML INTEGRATOR",
+  brand: "AF",
+  brandName: "Arisha Firoz",
+  // brandSubtitle: "Software Engineer & AI Integrator",
+  // availabilityPill: "Ready",
+  firstName: "Arisha",
+  lastName: "Firoz",
+  // badge: "Full-stack Developer • AI/ML Integrator",
   introLead:
     "B.Tech Computer Science undergraduate building scalable full-stack applications, resilient distributed architectures, and applied AI-driven systems.",
   introLeadBold: "scalable full-stack applications",
   resumeUrl: "/resume.pdf",
   email: "firozarisha49@gmail.com",
   location: "Prayagraj, Uttar Pradesh, India",
-  statusBar: {
-    status: "SYS.STATUS // READY FOR SDE INTERNSHIPS",
-    location: "LOC: PRAYAGRAJ, INDIA",
-    doc: "ARCHITECTURAL DOSSIER",
-  },
+  hireLabel: "Hire Me ↗",
+  primaryCta: { label: "Explore Projects", icon: "↓", href: "#projects" },
+  secondaryCta: { label: "Download Resume", href: "/resume.pdf" },
+  transmissionsLabel: "Transmissions:",
+  // statusBar: {
+  //   status: "Status: Open for SDE Internships",
+  //   location: "Prayagraj, India",
+  //   tags: ["Architectural Dossier", "B.Tech CSE (2023–Present)"],
+  // },
+  // stats: [
+  //   { label: "Academic GPA", value: "7.7 / 10", note: "UCER Prayagraj", accent: "cyan" },
+  //   { label: "SIH 2025 Rank", value: "Top 13 / 90+", note: "National Level", accent: "indigo" },
+  //   { label: "SSOC 2025", value: "#47 Global", note: "350+ Contributors", accent: "pink" },
+  // ],
   manifest: {
     fileName: "developer_manifest.json",
     liveTag: "LIVE_ENV: OK",
@@ -83,13 +111,14 @@ export const profile = {
       cgpa: 7.7,
     },
     primaryFocus: ["Distributed Web Systems", "Agentic LLM Pipelines", "Predictive ML Architectures"],
-    availability: { role: "Software Engineering Intern", status: "open" },
+    availability: { role: "Software Engineering Intern", status: "Open to internships" },
     metrics: { leetcodeSolved: 235 },
-  },
-  sideNote: {
-    title: "Resilient Code. Tactile UI.",
-    body: "Bridging algorithmic rigour with Swiss clarity.",
-  },
+  }
+  // sideNote: {
+  //   label: "Core Design Discipline",
+  //   title: "Resilient Code. Tactile UI.",
+  //   body: "Bridging algorithmic rigour with modern fluid aesthetics.",
+  // },
 };
 
 export const navLinks: NavLink[] = [
@@ -112,52 +141,54 @@ export const leetcodeChip = "235+ Solved";
 export const skills: SkillCategory[] = [
   {
     id: "01",
+    accent: "cyan",
     title: "Languages",
     description: "Core programming languages for systems and applications.",
     items: ["Python", "Java", "C", "JavaScript"],
-    footer: "4 UNITS // VERIFIED",
+    footer: { label: "Primary Focus", value: "Python / Java" },
   },
   {
     id: "02",
-    title: "Core Computer Science",
+    accent: "indigo",
+    title: "Core CS",
     description: "Fundamentals behind every system built.",
     items: ["DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks"],
-    footer: "5 UNITS // VERIFIED",
+    footer: { label: "Algorithmic Depth", value: "235+ LC Solved" },
   },
   {
     id: "03",
-    title: "Web Technologies",
+    accent: "purple",
+    title: "Web",
     description: "Stacks for shipping full-stack products.",
-    items: ["React", "FastAPI", "Django", "AngularJS", "HTML5/CSS3", "Bootstrap", "REST APIs"],
-    footer: "7 UNITS // VERIFIED",
+    items: ["HTML5/CSS3", "Bootstrap", "AngularJS", "React", "FastAPI", "Django", "REST APIs"],
   },
   {
     id: "04",
-    title: "Databases & Storage",
+    accent: "neutral",
+    title: "Databases",
     description: "Relational and document data stores.",
     items: ["SQL", "MongoDB"],
-    footer: "2 UNITS // VERIFIED",
   },
   {
     id: "05",
-    title: "Tools & DevOps",
-    description: "Version control, containers, and deploys.",
-    items: ["Git", "GitHub", "Docker", "Vercel", "Render"],
-    footer: "5 UNITS // VERIFIED",
+    accent: "neutral",
+    title: "Tools",
+    description: "Version control and container workflows.",
+    items: ["Git", "GitHub", "Docker"],
   },
   {
     id: "06",
-    title: "Applied AI & ML",
+    accent: "pink",
+    title: "AI/ML",
     description: "Models and LLM workflows in production code.",
     items: ["Scikit-learn", "Random Forest", "Feature Engineering", "RAG", "Prompt Engineering"],
-    footer: "5 UNITS // VERIFIED",
   },
 ];
 
 export const experience: Job[] = [
   {
     index: "01",
-    current: true,
+    accent: "cyan",
     role: "Frontend Developer Intern",
     company: "Construction Builder Solution",
     period: "Mar 2026 – May 2026",
@@ -168,11 +199,11 @@ export const experience: Job[] = [
       "Integrated frontend with backend via REST APIs and JSON, reducing client-server payload latency",
       "Conducted cross-browser testing, bug fixing, and performance optimization",
     ],
-    status: "STATUS: COMPLETED",
+    status: "Status: Completed",
   },
   {
     index: "02",
-    current: false,
+    accent: "purple",
     role: "Frontend Development Intern",
     company: "E-Commerce Platform",
     period: "Jan 2026 – Mar 2026",
@@ -182,15 +213,16 @@ export const experience: Job[] = [
       "Designed and deployed modular, reusable UI components with HTML5, CSS3, JavaScript, Bootstrap",
       "Collaborated with backend developers on third-party API integration, UI testing, cross-device rendering fixes",
     ],
-    status: "STATUS: COMPLETED",
+    status: "Status: Completed",
   },
 ];
 
 export const projects: Project[] = [
   {
     id: "P_01",
-    category: "AGENTIC AI",
-    badge: "LLM PIPELINE",
+    accent: "pink",
+    category: "Agentic AI",
+    badge: "LLM Pipeline",
     title: "AI-Powered Code Review Agent",
     stack: ["FastAPI", "Python", "Groq LLM", "GitHub REST API"],
     bullets: [
@@ -203,8 +235,9 @@ export const projects: Project[] = [
   },
   {
     id: "P_02",
-    category: "DISTRIBUTED SYSTEMS",
-    badge: "REAL-TIME",
+    accent: "cyan",
+    category: "Distributed Systems",
+    badge: "Real-Time",
     title: "Real-Time YouTube Watch Party",
     stack: ["React", "Node.js", "TypeScript", "Express", "Socket.IO"],
     bullets: [
@@ -218,7 +251,8 @@ export const projects: Project[] = [
   },
   {
     id: "P_03",
-    category: "PREDICTIVE ML",
+    accent: "neutral",
+    category: "Predictive ML",
     badge: "NASA C-MAPSS",
     title: "Predictive Maintenance – RUL Prediction",
     stack: ["Python", "Scikit-learn", "Random Forest", "Pandas"],
@@ -232,8 +266,9 @@ export const projects: Project[] = [
   },
   {
     id: "P_04",
-    category: "FULL-STACK WEB",
-    badge: "DJANGO",
+    accent: "indigo",
+    category: "Full-Stack Web",
+    badge: "Django",
     title: "E-Commerce Web Application",
     stack: ["Django", "JavaScript", "SQL", "Payment Gateway"],
     bullets: [
@@ -257,12 +292,14 @@ export const degrees: Degree[] = [
     school: "United College of Engineering & Research, Prayagraj",
     period: "2023 – Present",
     detail: "CGPA 7.7",
+    badges: ["CGPA 7.7"],
   },
   {
     degree: "High School & Intermediate (Science)",
     school: "St. Anthony's Convent Girls Inter College",
     period: "2020 – 2022",
     detail: "84.17% | 69.6%",
+    badges: ["84.17%", "69.6%"],
   },
 ];
 
@@ -274,14 +311,17 @@ export const honors: Honor[] = [
     title: "Flipkart GRID 7.0",
     detail: "Cleared Round 1 (Software Development Track); qualified for Amazon ML Summer School",
   },
-  { title: "Smart India Hackathon 2025", detail: "Top 13 out of 90+ teams" },
+  { title: "Smart India Hackathon 2025", detail: "Top 13 out of 90+ teams", badge: "Top 13" },
   {
     title: "Social Summer of Code 2025",
     detail: "Global Rank 47 among 350+ contributors",
+    badge: "Rank 47",
   },
   {
     title: "HackQuest 2025",
     detail: "Selected to showcase the AlertNexa project to an industry panel",
+    badge: "Showcased",
+    featured: true,
   },
 ];
 
@@ -290,10 +330,21 @@ export const contact = {
   email: "firozarisha49@gmail.com",
   location: "Prayagraj, Uttar Pradesh, India",
   quote: "Build systems that are easy to reason about and hard to break.",
-  quoteBy: "ENGINEERING ETHOS // 001",
+  quoteBy: "Engineering Ethos // 001",
+  sendLabel: "Send Message ▶",
   // Point this at your own Formspree endpoint to receive messages,
   // e.g. "https://formspree.io/f/xxxxxx". Left empty on purpose:
   // the form falls back to a mailto: draft.
   formspreeEndpoint: "",
   note: "No backend wired up yet — submitting opens your email app with the message pre-filled. Set a Formspree endpoint in src/data/portfolio.ts to receive messages directly.",
+};
+
+export const footerCopy = {
+  name: "Arisha Firoz",
+  line: "All systems nominal.",
+  links: [
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ],
+  backToTop: "Back to Top",
 };
