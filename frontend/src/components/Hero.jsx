@@ -85,7 +85,7 @@ export default function Hero() {
               </a>
               <a
                 href={profile.secondaryCta.href}
-                download
+                download={profile.resumeFile}
                 className="btn btn-glass px-5 py-3 text-sm uppercase tracking-[0.08em]"
               >
                 <FiFileText size={16} aria-hidden="true" />
@@ -103,7 +103,9 @@ export default function Hero() {
                     <li key={s.key}>
                       <a
                         href={s.href}
-                        aria-label={`${s.label}${s.key === "leetcode" ? `, ${leetcodeChip}` : ""} (placeholder link)`}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={`${s.label}${s.key === "leetcode" ? `, ${leetcodeChip}` : ""} (opens in a new tab)`}
                         className="chip chip-accent inline-flex items-center gap-1.5 px-3 py-1.5"
                         style={{ "--tint": accentVar[s.key === "github" ? "neutral" : s.key === "linkedin" ? "indigo" : "pink"] }}
                       >

@@ -83,7 +83,8 @@ export const profile = {
   introLead:
     "B.Tech Computer Science undergraduate building scalable full-stack applications, resilient distributed architectures, and applied AI-driven systems.",
   introLeadBold: "scalable full-stack applications",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Arisha_Firoz_Resume.pdf",
+  resumeFile: "Arisha_Firoz_Resume.pdf",
   email: "firozarisha49@gmail.com",
   location: "Prayagraj, Uttar Pradesh, India",
   hireLabel: "Hire Me ↗",
@@ -130,10 +131,42 @@ export const navLinks: NavLink[] = [
   { label: "Contact", href: "#contact" },
 ];
 
+// Real profiles and repos, taken from frontend/public/resume.pdf.
+// Fill any empty string with the live URL and the site picks it up automatically.
+export const links = {
+  github: "https://github.com/arisha2902",
+  linkedin: "https://www.linkedin.com/in/arisha-firoz-668638331",
+  leetcode: "https://leetcode.com/u/arisha2902/",
+  projects: {
+    codeReviewAgent: {
+      demo: "https://arisha2902.github.io/Code-Review-Agent/",
+      repo: "https://github.com/Arisha2902/Code-Review-Agent",
+    },
+    watchParty: {
+      demo: "https://watch-party-seven-jade.vercel.app/",
+      repo: "https://github.com/Arisha2902/watch-party",
+    },
+    predictiveMaintenance: {
+      demo: "https://predictive-maintenance-rul-predicti.vercel.app/",
+      repo: "https://github.com/Arisha2902/Predictive-Maintenance--RUL-Prediction",
+    },
+    eCommerce: {
+      demo: "https://shopsphere-l2s6.onrender.com/",
+      repo: "https://github.com/Arisha2902/ShopSphere",
+    },
+    alertNexa: { demo: "", repo: "https://github.com/Arisha2902/AlertNext" },
+    bibliobot: {
+      demo: "https://arisha2902.github.io/Bibliobot/",
+      repo: "https://github.com/Arisha2902/Bibliobot",
+    },
+    crowdVision: { demo: "", repo: "https://github.com/Arisha2902/OpenCV-CrowdVision" },
+  },
+} as const;
+
 export const socials: Social[] = [
-  { label: "GitHub", href: "#", key: "github" },
-  { label: "LinkedIn", href: "#", key: "linkedin" },
-  { label: "LeetCode", href: "#", key: "leetcode" },
+  { label: "GitHub", href: links.github, key: "github" },
+  { label: "LinkedIn", href: links.linkedin, key: "linkedin" },
+  { label: "LeetCode", href: links.leetcode, key: "leetcode" },
 ];
 
 export const leetcodeChip = "235+ Solved";
@@ -230,8 +263,8 @@ export const projects: Project[] = [
       "Multi-agent pipeline: Static Analysis, Security Audit, Code Style, Executive Summary",
       "Diff-only payloads to minimize token usage and API overhead",
     ],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: links.projects.codeReviewAgent.demo,
+    githubUrl: links.projects.codeReviewAgent.repo,
   },
   {
     id: "P_02",
@@ -246,8 +279,8 @@ export const projects: Project[] = [
       "Payload validation, rate-limited chat/reactions, attack scripts confirming unauthorized socket events are rejected",
       "Deployed on Vercel (frontend) and Render (backend)",
     ],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: links.projects.watchParty.demo,
+    githubUrl: links.projects.watchParty.repo,
   },
   {
     id: "P_03",
@@ -261,8 +294,8 @@ export const projects: Project[] = [
       "Linear Regression (baseline 43.87) → Random Forest, with correlation-based feature selection and StandardScaler",
       "Self-engineered RUL target; cost simulation across 518 critical engines projected Rs. 21.7 Cr in prevented breakdown costs",
     ],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: links.projects.predictiveMaintenance.demo,
+    githubUrl: links.projects.predictiveMaintenance.repo,
   },
   {
     id: "P_04",
@@ -275,8 +308,53 @@ export const projects: Project[] = [
       "Secure auth (JWT/Sessions), payment gateway checkout flows",
       "Automated inventory tracking, AJAX-based dynamic shopping cart",
     ],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: links.projects.eCommerce.demo,
+    githubUrl: links.projects.eCommerce.repo,
+  },
+  {
+    id: "P_05",
+    accent: "purple",
+    category: "Conversational AI",
+    badge: "Watson Assistant",
+    title: "Bibliobot – Book Recommendation Chatbot",
+    stack: ["HTML/CSS", "JavaScript", "IBM Watson Assistant", "GitHub Pages"],
+    bullets: [
+      "Mood-based recommendations across Happy, Sad, Inspiring, Adventurous and Romantic",
+      "Genre and author-affinity matching (Biography, Fantasy, Fiction, Non-Fiction, Thriller Fantasy)",
+      "Conversational dialogue in English, Hindi and Urdu, deployed as a dark-themed site",
+    ],
+    demoUrl: links.projects.bibliobot.demo,
+    githubUrl: links.projects.bibliobot.repo,
+  },
+  {
+    id: "P_06",
+    accent: "pink",
+    category: "Disaster Management",
+    badge: "HackQuest 2025",
+    title: "AlertNexa – Emergency Alerting System",
+    stack: ["Python", "FastAPI", "JSON", "Watson ML"],
+    bullets: [
+      "Disaster-management platform built to deliver emergency information fast",
+      "FastAPI services for JSON-based data delivery and alert display",
+      "Showcased to an industry panel at HackQuest 2025",
+    ],
+    demoUrl: links.projects.alertNexa.demo,
+    githubUrl: links.projects.alertNexa.repo,
+  },
+  {
+    id: "P_07",
+    accent: "cyan",
+    category: "Computer Vision",
+    badge: "YOLOv4-tiny",
+    title: "CrowdVision – Real-Time Crowd Monitoring",
+    stack: ["Python", "OpenCV", "YOLOv4-tiny", "NumPy"],
+    bullets: [
+      "Detects and counts people in a live video stream using YOLOv4-tiny weights",
+      "Raises a crowd alert once occupancy crosses a configurable threshold (default 10)",
+      "Runs against a video file or a live webcam feed",
+    ],
+    demoUrl: links.projects.crowdVision.demo,
+    githubUrl: links.projects.crowdVision.repo,
   },
 ];
 

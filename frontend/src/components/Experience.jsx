@@ -5,10 +5,13 @@ import SectionLabel from "./SectionLabel";
 
 export default function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-title" className="scroll-mt-32">
-      <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_03" title="Work Experience" blurb="02 Internships in responsive interfaces and API integration." />
-        <h2 id="experience-title" className="sr-only">Work Experience</h2>
+    <section id="experience" aria-labelledby="experience-title" className="scroll-mt-20">
+      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+        <SectionLabel
+          heading="Work Experience"
+          headingId="experience-title"
+          blurb="02 Internships in responsive interfaces and API integration."
+        />
 
         <div className="mt-8 space-y-5">
           {experience.map((job, i) => {

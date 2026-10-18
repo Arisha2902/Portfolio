@@ -14,10 +14,13 @@ const iconFor = {
 
 export default function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title" className="scroll-mt-32">
-      <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_02" title="Capability Matrix" blurb="Technical skills, grouped by system layer." />
-        <h2 id="skills-title" className="sr-only">Technical Skills</h2>
+    <section id="skills" aria-labelledby="skills-title" className="scroll-mt-20">
+      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+        <SectionLabel
+          heading="Technical Skills"
+          headingId="skills-title"
+          blurb="Technical skills, grouped by system layer."
+        />
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((cat, i) => {

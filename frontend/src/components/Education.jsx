@@ -5,10 +5,13 @@ import SectionLabel from "./SectionLabel";
 
 export default function Education() {
   return (
-    <section id="education" aria-labelledby="education-title" className="scroll-mt-32">
-      <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_05" title="Education & Achievements" blurb="Academic degrees and competitive record." />
-        <h2 id="education-title" className="sr-only">Education and Achievements</h2>
+    <section id="education" aria-labelledby="education-title" className="scroll-mt-20">
+      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+        <SectionLabel
+          heading="Education & Achievements"
+          headingId="education-title"
+          blurb="Academic degrees and competitive record."
+        />
 
         <div className="mt-8 grid items-stretch gap-5 lg:grid-cols-2">
           {/* Left: degrees */}

@@ -65,10 +65,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="scroll-mt-32">
-      <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <SectionLabel index="SEC_06" title={contact.heading} />
-        <h2 id="contact-title" className="sr-only">Contact</h2>
+    <section id="contact" aria-labelledby="contact-title" className="scroll-mt-20">
+      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+        <SectionLabel heading="Get in Touch" headingId="contact-title" />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
           {/* Left: direct channels + ethos */}
@@ -110,7 +109,9 @@ export default function Contact() {
                         <li key={s.key}>
                           <a
                             href={s.href}
-                            aria-label={`${s.label}${s.key === "leetcode" ? `, ${leetcodeChip}` : ""} (placeholder link)`}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            aria-label={`${s.label}${s.key === "leetcode" ? `, ${leetcodeChip}` : ""} (opens in a new tab)`}
                             className="chip chip-accent inline-flex items-center gap-1.5 px-3 py-1.5"
                             style={{
                               "--tint": accentVar[

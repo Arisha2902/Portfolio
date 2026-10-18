@@ -69,7 +69,7 @@ export default function Navbar({ theme, onToggleTheme }) {
           </a>
           <a
             href={profile.resumeUrl}
-            download
+            download={profile.resumeFile}
             aria-label="Download resume (PDF)"
             className={`icon-btn transition-all duration-300 ${scrolled ? "h-8 w-8" : "h-9 w-9"}`}
           >
@@ -142,7 +142,7 @@ export default function Navbar({ theme, onToggleTheme }) {
             <li className="flex flex-wrap items-center gap-2 pt-2">
               <a
                 href={profile.resumeUrl}
-                download
+                download={profile.resumeFile}
                 className="btn btn-glass px-3.5 py-2 text-[0.7rem] uppercase tracking-[0.1em]"
               >
                 <FiDownload size={14} aria-hidden="true" /> {profile.secondaryCta.label}
