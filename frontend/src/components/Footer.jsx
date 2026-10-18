@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-6 px-4 pb-6 sm:px-6">
-      <div className="card mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-5 px-5 py-6 sm:flex-row">
+      <div className="card mx-auto flex w-full max-w-[1400px] flex-col items-start justify-between gap-5 px-6 py-6 md:px-10 lg:px-16 sm:flex-row sm:items-center">
         <div>
           <p className="h-title text-lg text-[var(--ink)]">{footerCopy.name}</p>
           <p className="mono mt-1 text-[0.68rem] uppercase tracking-[0.12em] text-[var(--faint)]">

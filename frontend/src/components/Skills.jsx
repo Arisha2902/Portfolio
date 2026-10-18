@@ -15,7 +15,7 @@ const iconFor = {
 export default function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-title" className="scroll-mt-20">
-      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pb-14 pt-6 md:px-10 lg:px-16 lg:pb-16 lg:pt-6">
         <SectionLabel
           heading="Technical Skills"
           headingId="skills-title"

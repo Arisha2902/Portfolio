@@ -41,7 +41,7 @@ function SocketVisual() {
       {blocks.map((n, i) => (
         <div
           key={n}
-          className={`mono rounded-[var(--radius-sm)] px-2 py-3 text-center text-[0.62rem] font-bold leading-tight ${
+          className={`mono rounded-[var(--radius-sm)] px-2 py-3 text-left text-[0.62rem] font-bold leading-tight ${
             i === 1
               ? "grad-cyan-blue text-[#04121a]"
               : "border border-white/10 bg-white/5 text-[#c3cbe0]"
@@ -62,7 +62,7 @@ function RulVisual() {
       aria-label="RUL results: baseline RMSE 43.87, optimized RMSE 35.32, projected cost saved Rs. 21.7 Cr"
     >
       {rulStats.map((s) => (
-        <div key={s.label} className="bg-white/[0.03] px-2 py-3 text-center">
+        <div key={s.label} className="bg-white/[0.03] px-2 py-3 text-left">
           <p className="h-title text-sm text-[var(--ink)] sm:text-base">{s.value}</p>
           <p className="mono mt-1 text-[0.58rem] uppercase tracking-[0.08em] text-[var(--faint)]">{s.label}</p>
         </div>
@@ -146,7 +146,7 @@ function CrowdVisual({ tint }) {
         {bars.map((v) => (
           <div
             key={v}
-            className="mono flex-1 rounded-t-[4px] text-center text-[0.55rem]"
+            className="mono flex-1 rounded-t-[4px] text-left text-[0.55rem]"
             style={{
               height: `${(v / 12) * 100}%`,
               background: v > 10 ? tint : "rgba(255,255,255,0.16)",
@@ -180,7 +180,7 @@ const visualFor = {
 export default function Projects() {
   return (
     <section id="projects" aria-labelledby="projects-title" className="scroll-mt-20">
-      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pb-14 pt-6 md:px-10 lg:px-16 lg:pb-16 lg:pt-6">
         <SectionLabel
           heading="Featured Projects"
           headingId="projects-title"

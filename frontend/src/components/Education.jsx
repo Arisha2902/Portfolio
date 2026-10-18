@@ -6,7 +6,7 @@ import SectionLabel from "./SectionLabel";
 export default function Education() {
   return (
     <section id="education" aria-labelledby="education-title" className="scroll-mt-20">
-      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pb-14 pt-6 md:px-10 lg:px-16 lg:pb-16 lg:pt-6">
         <SectionLabel
           heading="Education & Achievements"
           headingId="education-title"
@@ -42,7 +42,7 @@ export default function Education() {
               </Reveal>
             ))}
             <Reveal delay={0.12} className="mt-auto">
-              <p className="card mono px-4 py-3.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
+              <p className="card mono px-4 py-3.5 text-left text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
                 Certification // {certificationStrip}
               </p>
             </Reveal>

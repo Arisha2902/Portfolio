@@ -66,7 +66,7 @@ export default function Contact() {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-20">
-      <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 sm:pb-16 sm:pt-6">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pb-14 pt-6 md:px-10 lg:px-16 lg:pb-16 lg:pt-6">
         <SectionLabel heading="Get in Touch" headingId="contact-title" />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2">

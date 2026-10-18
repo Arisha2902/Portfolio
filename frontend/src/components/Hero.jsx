@@ -57,25 +57,23 @@ export default function Hero() {
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="scroll-mt-40 pt-[var(--hero-pad)] sm:pt-[var(--hero-pad-sm)]"
+      className="flex min-h-[calc(100vh+4rem)] scroll-mt-32 flex-col justify-center pt-[var(--hero-pad)] sm:pt-[var(--hero-pad-sm)]"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        {/* <SectionLabel index="SEC_01" title="Curriculum Vitae" /> */}
-
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
         {/* Name and JSON panel share this row so both start at the same height */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16 lg:items-start">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h1 id="hero-heading" className="h-display text-6xl leading-[0.95] sm:text-7xl lg:text-8xl">
+            <h1 id="hero-heading" className="h-display text-7xl leading-[0.9] sm:text-8xl lg:text-[7rem]">
               <span className="block text-[var(--ink)]">{profile.firstName}</span>
               <span className="grad-text script-name block">{profile.lastName}</span>
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
               <Intro text={profile.introLead} bold={profile.introLeadBold} />
             </p>
 
@@ -132,7 +130,7 @@ export default function Hero() {
             <div className="terminal overflow-hidden">
               <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
                 <span className="h-3 w-3 shrink-0 rounded-full bg-[#ff5f57]" aria-hidden="true" />
-                <span className="mono flex-1 truncate text-center text-xs text-[var(--muted)]">
+                <span className="mono flex-1 truncate text-xs text-[var(--muted)]">
                   {m.fileName}
                 </span>
                 <span className="mono shrink-0 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-emerald-300">

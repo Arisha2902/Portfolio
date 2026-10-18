@@ -37,7 +37,7 @@ export default function Navbar({ theme, onToggleTheme }) {
       {/* Floating glass bar — compacts once the page is scrolled */}
       <nav
         aria-label="Primary"
-        className={`glass-bar mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-3 gap-y-2 px-3 transition-all duration-300 ${
+        className={`glass-bar mx-auto flex w-full max-w-[1400px] flex-wrap items-center justify-between gap-x-3 gap-y-2 px-6 transition-all duration-300 md:px-10 lg:px-16 ${
           scrolled ? "is-scrolled py-1.5" : "py-2.5"
         }`}
       >
@@ -96,8 +96,8 @@ export default function Navbar({ theme, onToggleTheme }) {
           </button>
         </div>
 
-        {/* Center: pill nav (laptop and up) */}
-        <ul className="order-3 hidden w-full min-w-0 items-center gap-1 overflow-x-auto rounded-full border border-[var(--card-border)] bg-[var(--chip-bg)] p-1 lg:order-2 lg:mx-auto lg:flex lg:w-auto lg:overflow-visible">
+        {/* Right: pill nav (laptop and up) */}
+        <ul className="order-3 hidden w-full min-w-0 items-center gap-1 overflow-x-auto rounded-full border border-[var(--card-border)] bg-[var(--chip-bg)] p-1 lg:order-2 lg:ml-auto lg:flex lg:w-auto lg:overflow-visible">
           {navLinks.map((link) => (
             <li key={link.href} className="shrink-0">
               <a
@@ -120,7 +120,7 @@ export default function Navbar({ theme, onToggleTheme }) {
         <nav
           aria-label="Mobile"
           id="mobile-menu"
-          className="glass-bar mx-auto mt-2 w-full max-w-6xl px-3 py-3 lg:hidden"
+          className="glass-bar mx-auto mt-2 w-full max-w-[1400px] px-6 py-3 md:px-10 lg:px-16 lg:hidden"
         >
           <ul className="space-y-1">
             {navLinks.map((link) => (
