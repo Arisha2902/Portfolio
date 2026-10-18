@@ -410,11 +410,8 @@ export const contact = {
   quote: "Build systems that are easy to reason about and hard to break.",
   quoteBy: "Engineering Ethos // 001",
   sendLabel: "Send Message ▶",
-  // Point this at your own Formspree endpoint to receive messages,
-  // e.g. "https://formspree.io/f/xxxxxx". Left empty on purpose:
-  // the form falls back to a mailto: draft.
-  formspreeEndpoint: "",
-  note: "No backend wired up yet — submitting opens your email app with the message pre-filled. Set a Formspree endpoint in src/data/portfolio.ts to receive messages directly.",
+  formspreeEndpoint: "https://formspree.io/f/xjygzvww",
+  note: "Messages are sent via Formspree.",
 };
 
 export const footerCopy = {
