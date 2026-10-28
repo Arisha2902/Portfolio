@@ -101,7 +101,7 @@
   --heading-transform: uppercase;
   --heading-tracking: -0.01em;
   /* Navbar → hero gap (shared by both skins) */
-  --hero-pad: 0rem;
+  --hero-pad: 5rem;
   --hero-pad-sm: 0.5rem;
 
   /* JSON panel syntax */

@@ -57,7 +57,7 @@ export default function Hero() {
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="flex min-h-[calc(100vh+4rem)] scroll-mt-32 flex-col justify-center pt-[var(--hero-pad)] sm:pt-[var(--hero-pad-sm)]"
+      className="flex min-h-[calc(100vh+4rem)] scroll-mt-32 flex-col justify-center pt-[var(--hero-pad)] lg:pt-[var(--hero-pad-sm)]"
     >
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
         {/* Name and JSON panel share this row so both start at the same height */}

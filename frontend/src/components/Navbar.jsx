@@ -37,7 +37,7 @@ export default function Navbar({ theme, onToggleTheme }) {
       {/* Floating glass bar — compacts once the page is scrolled */}
       <nav
         aria-label="Primary"
-        className={`glass-bar mx-auto flex w-full max-w-[1400px] flex-wrap items-center justify-between gap-x-3 gap-y-2 px-6 transition-all duration-300 md:px-10 lg:px-16 ${
+        className={`glass-bar mx-auto flex w-full max-w-[1400px] flex-wrap items-center justify-between gap-x-3 gap-y-2 px-6 transition-all duration-300 md:px-8 lg:px-10 ${
           scrolled ? "is-scrolled py-1.5" : "py-2.5"
         }`}
       >
@@ -120,7 +120,7 @@ export default function Navbar({ theme, onToggleTheme }) {
         <nav
           aria-label="Mobile"
           id="mobile-menu"
-          className="glass-bar mx-auto mt-2 w-full max-w-[1400px] px-6 py-3 md:px-10 lg:px-16 lg:hidden"
+          className="glass-bar mx-auto mt-2 w-full max-w-[1400px] px-6 py-3 md:px-8 lg:px-10 lg:hidden"
         >
           <ul className="space-y-1">
             {navLinks.map((link) => (
